@@ -10,14 +10,14 @@
 <body>
   <!-- Header -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ url('/home') }}">My Website</a>
+    <a class="navbar-brand" href="{{ url('/home') }}">Petrol Pump</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url('/home') }}">DashBoard <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/about') }}">About</a>
@@ -28,44 +28,42 @@
       </ul>
     </div>
   </nav>
+  <br> <br>
+  <h3> Customer Information </h3>
+  <div class="col-sm-8">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Car Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($customer as $list)
+                <tr>
+                  <th>{{$list->id}}</th>
+                  <td>{{$list->customer_name}}</td>
+                  <td>{{$list->phone}}</td>
+                  <td>{{$list->email}}</td>
+                  <td>{{$list->car_name}}</td>
+                  <td>
+                    <!-- <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a> -->
+                    <a href="{{url('/delete',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
 
-  <!-- Form -->
-  <div class="container mt-5">
-    <form  action="{{ route('create') }}" method="POST" >
-    @csrf
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
-      </div>
-      <div class="form-group">
-        <label for="email" name="email">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone number</label>
-        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
-      </div>
-      <div class="form-group">
-        <label for="country">Country</label>
-        <select class="form-control" id="country" name="country">
-          <option value="Country id's form db">Countries name from db</option>
-          <option value="pk" name="country"> Pk </option>  
-          <option value="USA" name="country"> USA </option>  
-        </select> 
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="accept-conditions">
-        <label class="form-check-label" for="accept-conditions">I accept the terms and conditions</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+        </div>
   <!-- Footer -->
   <footer class="mt-5 bg-light">
-    <div class="container">
-      <p>&copy; My Website 2023</p>
+  <div class="mx-auto" style="width: 200px;">
+       <p>&copy; Petrol Pump Management System 2023</p>
     </div>
   </footer>
 

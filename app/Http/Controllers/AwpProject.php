@@ -10,8 +10,8 @@ class AwpProject extends Controller
 {
     public function index()
     {
-        $country = DB::table('countries')->get();
-        return view('main',['country'=> $country]);
+        $customer = DB::table('customer')->get();
+        return view('main',['customer'=> $customer]);
     }
     public function home()
     {

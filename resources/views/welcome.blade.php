@@ -1,4 +1,4 @@
-<!-- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
-            <form action="{{route('save-student') }}" method="POST">
+            <form action=" {{ route('create') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -39,14 +39,15 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($student as $list)
+              @foreach ($customer as $list)
                 <tr>
                   <th>{{$list->id}}</th>
-                  <td>{{$list->name}}</td>
-                  <td>{{$list->city}}</td>
-                  <td>{{$list->marks}}</td>
+                  <td>{{$list->customer_name}}</td>
+                  <td>{{$list->phone}}</td>
+                  <td>{{$list->email}}</td>
+                  <td>{{$list->car_name}}</td>
                   <td>
-                    <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a>
+                    <!-- <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a> -->
                     <a href="{{url('/delete',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
 
                   </td>
@@ -62,4 +63,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>
- -->
+
