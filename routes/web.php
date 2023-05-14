@@ -5,7 +5,9 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\Quiz2;
 use App\Http\Controllers\Awp;
 use App\Http\Controllers\AwpProject;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 
 // Route::get('/', function () {
 //     dispatch(new App\Jobs\BulkInsertJob());
@@ -29,6 +31,12 @@ Route::get('/',[AwpProject::class,'index'])->name('index');
 Route::get('/',[AwpProject::class,'dashboard'])->name('dashboard');
 Route::get('/page',[AwpProject::class,'page'])->name('page');
 
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 // Route::get('/return',[Awp::class,'returnInsert'])->name('returnInsert');
 
