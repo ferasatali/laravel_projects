@@ -22,9 +22,6 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/page?page=About') }}">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/page?page=Contact') }}">Contact</a>
-        </li>
       </ul>
     </div>
   </nav>

@@ -10,17 +10,45 @@ class AwpProject extends Controller
 {
     public function index()
     {
-        return view('main');
+        return view('login');
     }
-    public function customer() {
+
+    public function dashboard()
+    {
+        $pump = DB::table('pump')->get();
+        return view('pump', ['pump' => $pump]);
+    }
+
+    public function login(Request $request)
+    {
+
+        $credentials = $request->validate([
+            'password' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $user = DB::table('users')
+            ->where('password', $credentials['password'])
+            ->where('email', $credentials['email'])
+            ->first();
+        if ($user) {
+            return redirect(route('dashboard'))->with('status', 'Login SuccussFully');
+        } else {
+            return redirect(route('index'))->with('error', 'invalid Credentials !!!!!');
+        }
+    }
+    public function customer()
+    {
         $customer = DB::table('customer')->get();
         return view('customer', ['customer' => $customer]);
     }
-    public function employee() {
+    public function employee()
+    {
         $employee = DB::table('employee')->get();
         return view('employee', ['employee' => $employee]);
     }
-    public function discounts() {
+    public function discounts()
+    {
         $discounts = DB::table('pump_discounts')->get();
         return view('discounts', ['discounts' => $discounts]);
     }
@@ -69,8 +97,8 @@ class AwpProject extends Controller
     {
         $page = $request->input('page');
         if ($page === 'Home') {
-            return view('main');
+            return redirect(route('index'));
         }
-        return view('page', ['page' => $page]);
+        return view('page');
     }
 }
