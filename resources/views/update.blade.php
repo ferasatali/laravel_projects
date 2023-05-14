@@ -34,7 +34,7 @@
       <div class="col-sm-12">
       <form action=" {{ route('update-customer',$data[0]->id) }}" method="GET">
           @csrf
-          <div class="mb-3">
+          <div class="mb-3">  
             <label for="name" class="form-label">Customer Name</label>
             <input type="text" class="form-control" id="name" name="name" value="{{$data[0]->customer_name}}">
           </div>

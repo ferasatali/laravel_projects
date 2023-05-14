@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 
 class AwpProject extends Controller {
+
     public function index() {
         return view('login');
     }
@@ -32,6 +33,7 @@ class AwpProject extends Controller {
             return redirect(route('index'))->with('error', 'invalid Credentials !!!!!');
         }
     }
+    
     public function customer() {
         $customer = DB::table('customer')->get();
         return view('customer', ['customer' => $customer]);

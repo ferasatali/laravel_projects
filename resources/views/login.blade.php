@@ -68,7 +68,7 @@
         </div>
         <div class="flex items-center justify-between">
             <button type="submit">Login</button>
-            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">Forgot Password?</a>
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{url('/forgot-password')}}">Forgot Password?</a>
         </div>
         <br>
         @if(session('error'))
