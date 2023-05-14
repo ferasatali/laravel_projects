@@ -17,10 +17,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('/page?page=Home') }}">DashBoard <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('/page?page=Home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/page?page=About') }}"> About </a>
+          <a class="nav-link" href="{{ url('/page?page=About') }}">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/page?page=Contact') }}">Contact</a>
@@ -28,20 +28,16 @@
       </ul>
     </div>
   </nav>
-  <br> <br>
-  
-  <div class="card col-sm-6">
-  <div class="card-body">
-    Customer Information <div class ="text-right"><a href="{{ url('/customer')}}" class="btn btn-primary">Go to Customer</a> </div>
+
+  <!-- Form -->
+  <div class="container mt-5">
+        <h5> {{ $page }}</h5>
   </div>
-  <div class="card-body">
-    Employee Information <div class ="text-right"><a href="{{ url('/employee')}}" class="btn btn-primary">Go to Employee</a> </div>
-  </div>
-</div>
+
   <!-- Footer -->
   <footer class="mt-5 bg-light">
-  <div class="mx-auto" style="width: 200px;">
-       <p>&copy; Petrol Pump System 2023</p>
+    <div class="container">
+      <p>&copy; My Website 2023</p>
     </div>
   </footer>
 

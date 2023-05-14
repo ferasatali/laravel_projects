@@ -12,13 +12,15 @@ Route::get('/', function () {
 });
 
 
+Route::get('/customer',[AwpProject::class,'customer'])->name('customer');
+Route::get('/employee',[AwpProject::class,'employee'])->name('employee');
+Route::post('/create-customer',[AwpProject::class,'createCustomer'])->name('create-customer');
+Route::post('/create-employee',[AwpProject::class,'createEmployee'])->name('create-employee');
+
+Route::get('/delete/{id}',[AwpProject::class,'delete'])->name('delete');
 
 Route::get('/',[AwpProject::class,'index'])->name('index');
-Route::post('/create',[AwpProject::class,'create'])->name('create');
-Route::get('/home',[AwpProject::class,'home'])->name('home');
-Route::get('/about',[AwpProject::class,'about'])->name('about');
-Route::get('/contact',[AwpProject::class,'contact'])->name('contact');
-
+Route::get('/page',[AwpProject::class,'page'])->name('page');
 
 
 // Route::get('/return',[Awp::class,'returnInsert'])->name('returnInsert');
