@@ -22,70 +22,40 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/page?page=About') }}">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/page?page=Contact') }}">Contact</a>
+        </li>
       </ul>
     </div>
   </nav>
   <div class="container mt-5">
     <div class="row">
+      <h4> Update Customer </h4>
       <div class="col-sm-12">
-        <form action=" {{ route('create-customer') }}" method="POST">
+      <form action=" {{ route('update-customer',$data[0]->id) }}" method="GET">
           @csrf
           <div class="mb-3">
             <label for="name" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="name" name="name" value="{{$data[0]->customer_name}}">
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone Name</label>
-            <input type="number" class="form-control" id="phone" name="phone">
+            <input type="number" class="form-control" id="phone" name="phone" value="{{$data[0]->phone}}">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" value="{{$data[0]->email}}">
           </div>
           <div class="mb-3">
             <label for="carname" class="form-label">Car Name</label>
-            <input type="text" class="form-control" id="carname" name="carname">
+            <input type="text" class="form-control" id="carname" name="carname" value="{{$data[0]->car_name}}">
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Create Customer </button>
+            <button type="submit" class="btn btn-primary">Update Customer </button>
           </div>
         </form>
       </div>
-      <h4> Customer Information </h4>
-      <div class="col-sm-10 text-center">
-        @if(session()->has('status'))
-        <div class="alert alert-success">
-          {{session('status')}}
-        </div>
-        @endif
-        <table class="table table-hover text-center">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Customer Name</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Email</th>
-              <th scope="col">Car Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($customer as $list)
-            <tr>
-              <th>{{$list->id}}</th>
-              <td>{{$list->customer_name}}</td>
-              <td>{{$list->phone}}</td>
-              <td>{{$list->email}}</td>
-              <td>{{$list->car_name}}</td>
-              <td>
-                <a href="{{url('/update',$list->id)}}" class="btn btn-info btn-sm">Edit</a>
-                <a href="{{url('/delete?table=customer',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
-
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+      
     </div>
   </div>
 

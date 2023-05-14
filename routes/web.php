@@ -19,6 +19,9 @@ Route::get('/employee',[AwpProject::class,'employee'])->name('employee');
 Route::get('/fuel',[AwpProject::class,'fuel'])->name('fuel');
 Route::get('/discounts',[AwpProject::class,'discounts'])->name('discounts');
 Route::post('/create-customer',[AwpProject::class,'createCustomer'])->name('create-customer');
+
+Route::get('/update-customer/{id}',[AwpProject::class,'updateCustomer'])->name('update-customer');
+
 Route::post('/create-employee',[AwpProject::class,'createEmployee'])->name('create-employee');
 
 Route::post('/login',[AwpProject::class,'login'])->name('login');
@@ -28,29 +31,5 @@ Route::get('/delete/{id}',[AwpProject::class,'delete'])->name('delete');
 Route::get('/',[AwpProject::class,'index'])->name('index');
 Route::get('/',[AwpProject::class,'dashboard'])->name('dashboard');
 Route::get('/page',[AwpProject::class,'page'])->name('page');
+Route::get('/update/{id}',[AwpProject::class,'update'])->name('update');
 
-
-// Route::get('/return',[Awp::class,'returnInsert'])->name('returnInsert');
-
-// Route::post('/save-awp',[Awp::class,'create'])->name('save-awp');
-
-
-
-
-// todo => Cp-2 
-// Route::post('/save-data',[DataController::class,'save'])->name('save-data');
-
-// todo => Assignment 2
-
-// Route::get('/',[Quiz2::class,'index'])->name('index');
-
-// // todo => create student data 
-// Route::post('/save-student-data',[StudentController::class,'create'])->name('save-student-data');
-
-// // todo => update student data 
-
-// Route::post('/update/{id}',[StudentController::class,'update'])->name('update');
-
-// // todo => create delete data 
-
-// Route::get('/delete',[Quiz2::class,'delete'])->name('delete');
