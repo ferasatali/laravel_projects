@@ -78,6 +78,6 @@
 @endif
     </form>
 
-</body>
+</body> 
 
 </html>

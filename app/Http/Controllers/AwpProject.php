@@ -97,7 +97,7 @@ class AwpProject extends Controller
     {
         $page = $request->input('page');
         if ($page === 'Home') {
-            return redirect(route('index'));
+            return redirect(route('dashboard'));
         }
         return view('page');
     }
