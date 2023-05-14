@@ -12,22 +12,24 @@ class AwpProject extends Controller
     {
         return view('main');
     }
-    public function customer()
-    {
+    public function customer() {
         $customer = DB::table('customer')->get();
         return view('customer', ['customer' => $customer]);
     }
-    public function employee()
-    {
+    public function employee() {
         $employee = DB::table('employee')->get();
         return view('employee', ['employee' => $employee]);
+    }
+    public function discounts() {
+        $discounts = DB::table('pump_discounts')->get();
+        return view('discounts', ['discounts' => $discounts]);
     }
 
     public function fuel()
     {
         $fuel = DB::table('fuel')->get();
         $fuelConsumption = DB::table('fuel_consumption')->get();
-        return view('fuel', ['fuel' => $fuel,'fuelConsumption' => $fuelConsumption]);
+        return view('fuel', ['fuel' => $fuel, 'fuelConsumption' => $fuelConsumption]);
     }
 
     public function createCustomer(Request $request)
@@ -57,15 +59,18 @@ class AwpProject extends Controller
     {
         $table = $request->input('table');
         DB::table($table)->where('id', $id)->delete();
-        return redirect(route('employee'))->with('status', " $table . Deleted!!!" );
+        if ($table === 'fuel_consumption') {
+            return redirect(route('fuel'))->with('status', " $table . Deleted!!!");
+        }
+        return redirect(route($table))->with('status', " $table . Deleted!!!");
     }
-    
+
     public function page(Request $request)
     {
         $page = $request->input('page');
-        if($page === 'Home') {
+        if ($page === 'Home') {
             return view('main');
         }
-        return view('page',['page'=> $page]);
+        return view('page', ['page' => $page]);
     }
 }

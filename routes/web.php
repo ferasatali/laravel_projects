@@ -15,6 +15,7 @@ Route::get('/', function () {
 Route::get('/customer',[AwpProject::class,'customer'])->name('customer');
 Route::get('/employee',[AwpProject::class,'employee'])->name('employee');
 Route::get('/fuel',[AwpProject::class,'fuel'])->name('fuel');
+Route::get('/discounts',[AwpProject::class,'discounts'])->name('discounts');
 Route::post('/create-customer',[AwpProject::class,'createCustomer'])->name('create-customer');
 Route::post('/create-employee',[AwpProject::class,'createEmployee'])->name('create-employee');
 

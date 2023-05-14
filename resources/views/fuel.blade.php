@@ -36,6 +36,7 @@
           {{session('status')}}
         </div>
         @endif
+        <h4> Fuel Information </h4>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -60,13 +61,14 @@
             @endforeach
           </tbody>
         </table>
-      </div>
+      </div>  
       <div class="col-sm-6 ">
         @if(session()->has('status'))
         <div class="alert alert-success">
           {{session('status')}}
         </div>
         @endif
+        <h4> Fuel Consumption Information </h4>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -85,7 +87,7 @@
               <td>{{$list->total_fuel}}</td>
               <td>
                 <!-- <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a> -->
-                <a href="{{url('/delete?table=fuel',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{{url('/delete?table=fuel_consumption',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
               </td>
             </tr>
             @endforeach

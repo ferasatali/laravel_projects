@@ -54,6 +54,7 @@
           </div>
         </form>
       </div>
+      <h4> Customer Information </h4>
       <div class="col-sm-10 text-center">
         @if(session()->has('status'))
         <div class="alert alert-success">

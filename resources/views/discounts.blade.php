@@ -30,37 +30,34 @@
   </nav>
   <div class="container mt-5">
     <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            Customer Information <div align= right class=""><a href="{{ url('/customer')}}" class="btn btn-primary">Go to Customer</a> </div>
-          </div>
-          <div class="card-body">
-            Employee Information <div align= right  ><a href="{{ url('/employee')}}" class="btn btn-primary">Go to Employee</a> </div>
-          </div>
-        </div>
+      <h4> Discount Codes Available </h4>
+      <div class="col-sm-6 text-center">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Discount Code</th>
+              <th scope="col">Used</th>
+              <th scope="col">Discount Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($discounts as $list)
+            <tr>
+              <th>{{$list->id}}</th>
+              <td>{{$list->discount_codes}}</td>
+              <td>{{$list->is_used}}</td>
+              <td>{{$list->discount_price}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            Fuel Information <div align= right  ><a href="{{ url('/fuel')}}" class="btn btn-primary">Check Fuel Information</a> </div>
-          </div>
-          <div class="card-body">
-            Discounts Codes Available <div align= right ><a href="{{ url('/discounts')}}" class="btn btn-primary">Go to Discounts</a> </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
-
-<footer class="mt-5 bg-light">
-  <div class="mx-auto" style="width: 200px;">
-    <p>&copy; Petrol Pump System 2023</p>
-  </div>
-</footer>
 
 </html>
