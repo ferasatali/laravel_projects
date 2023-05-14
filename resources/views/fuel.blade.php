@@ -30,58 +30,62 @@
   </nav>
   <div class="container mt-5">
     <div class="row">
-      <div class="col-sm-12">
-        <form action=" {{ route('create-customer') }}" method="POST">
-          @csrf
-          <div class="mb-3">
-            <label for="name" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Phone Name</label>
-            <input type="number" class="form-control" id="phone" name="phone">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email">
-          </div>
-          <div class="mb-3">
-            <label for="carname" class="form-label">Car Name</label>
-            <input type="text" class="form-control" id="carname" name="carname">
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary">Create Customer </button>
-          </div>
-        </form>
-      </div>
-      <div class="col-sm-10 text-center">
+      <div class="col-sm-6">
         @if(session()->has('status'))
         <div class="alert alert-success">
           {{session('status')}}
         </div>
         @endif
-        <table class="table table-hover text-center">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Customer Name</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Email</th>
-              <th scope="col">Car Name</th>
+              <th scope="col">Types</th>
+              <th scope="col">Price</th>
+              <th scope="col">Tax Rate</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($customer as $list)
+            @foreach ($fuel as $list)
             <tr>
               <th>{{$list->id}}</th>
-              <td>{{$list->customer_name}}</td>
-              <td>{{$list->phone}}</td>
-              <td>{{$list->email}}</td>
-              <td>{{$list->car_name}}</td>
+              <td>{{$list->fuel_type}}</td>
+              <td>{{$list->fuel_price}}</td>
+              <td>{{$list->tax_rate}}</td>
               <td>
                 <!-- <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a> -->
-                <a href="{{url('/delete?table=customer',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
-
+                <a href="{{url('/delete?table=fuel',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6 ">
+        @if(session()->has('status'))
+        <div class="alert alert-success">
+          {{session('status')}}
+        </div>
+        @endif
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Fuel Lists</th>
+              <th scope="col">Availabe Fuel</th>
+              <th scope="col">Total Fuel</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($fuelConsumption as $list)
+            <tr>
+              <th>{{$list->id}}</th>
+              <td>{{$list->fuel_id}}</td>
+              <td>{{$list->fuel_available}}</td>
+              <td>{{$list->total_fuel}}</td>
+              <td>
+                <!-- <a href="{{url('/edit',$list->id)}}" class="btn btn-info btn-sm">Edit</a> -->
+                <a href="{{url('/delete?table=fuel',$list->id)}}" class="btn btn-danger btn-sm">Delete</a>
               </td>
             </tr>
             @endforeach

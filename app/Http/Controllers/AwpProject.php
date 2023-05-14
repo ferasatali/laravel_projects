@@ -23,6 +23,13 @@ class AwpProject extends Controller
         return view('employee', ['employee' => $employee]);
     }
 
+    public function fuel()
+    {
+        $fuel = DB::table('fuel')->get();
+        $fuelConsumption = DB::table('fuel_consumption')->get();
+        return view('fuel', ['fuel' => $fuel,'fuelConsumption' => $fuelConsumption]);
+    }
+
     public function createCustomer(Request $request)
     {
         DB::table('customer')->insert([

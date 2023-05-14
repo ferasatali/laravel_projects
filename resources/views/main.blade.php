@@ -37,6 +37,9 @@
   <div class="card-body">
     Employee Information <div class ="text-right"><a href="{{ url('/employee')}}" class="btn btn-primary">Go to Employee</a> </div>
   </div>
+  <div class="card-body">
+    Fuel Information <div class ="text-right"><a href="{{ url('/fuel')}}" class="btn btn-primary">Check Fuel Information</a> </div>
+  </div>
 </div>
   <!-- Footer -->
   <footer class="mt-5 bg-light">
